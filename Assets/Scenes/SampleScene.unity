@@ -342,14 +342,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 336046776155981651, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 965139573576356735, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
       propertyPath: m_Name
       value: GameScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 2526238699885364355, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
     - target: {fileID: 7343031055549133450, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -431,7 +431,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6287273709672208307, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}

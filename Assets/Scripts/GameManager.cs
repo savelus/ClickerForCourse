@@ -2,13 +2,8 @@ using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    [SerializeField] private ClickButtonController _clickButton;
-
+    [SerializeField] private ClickButtonManager _clickButtonManager;
     private void Awake() {
-        _clickButton.SubscribeOnClick(ShowClick);
-    }
-
-    private void ShowClick() {
-        Debug.Log("Click");
+        _clickButtonManager.Initialize();
     }
 }
