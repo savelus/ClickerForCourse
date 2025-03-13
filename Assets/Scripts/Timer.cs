@@ -39,8 +39,9 @@ public class Timer : MonoBehaviour {
         if(!_isPlaying) return;
 
         var deltaTime = Time.fixedDeltaTime;
-
-        if (deltaTime >= _currentTime) {
+        _currentTime -= deltaTime;
+        
+        if (_currentTime <= 0) {
             OnTimerEnd?.Invoke();
             Stop();
             return;
