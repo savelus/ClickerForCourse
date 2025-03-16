@@ -1,0 +1,1 @@
+C:\Repos\Unity\ClickerLessonGigaSchool\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\71r3z6b5\obj\arm64-v8a
