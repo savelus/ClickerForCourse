@@ -346,6 +346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 5342926125370855649, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6085510024176127237, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
       propertyPath: _timer
       value: 
@@ -433,6 +437,10 @@ PrefabInstance:
     - target: {fileID: 7343031055549133450, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162338611014888532, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8312873632450416468, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
       propertyPath: m_AnchorMax.x
