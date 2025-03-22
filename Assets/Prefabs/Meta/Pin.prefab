@@ -223,12 +223,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8949583250767016126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1edcc40a0e1c2443bb49a7f8162f824, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d37187b9680449199f31aac6dae5b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 2710086438192875217}
   _image: {fileID: 2081224410893432234}
-  _levelNumber: {fileID: 5015149683033593494}
+  _text: {fileID: 5015149683033593494}
+  _currentLevel: {r: 1, g: 0.53912413, b: 0, a: 1}
+  _passedLevel: {r: 0.13243794, g: 1, b: 0, a: 1}
+  _closedLevel: {r: 0.3132075, g: 0.3132075, b: 0.3132075, a: 1}
 --- !u!114 &2710086438192875217
 MonoBehaviour:
   m_ObjectHideFlags: 0

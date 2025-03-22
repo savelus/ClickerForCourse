@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecondLocation
       objectReference: {fileID: 0}
+    - target: {fileID: 7642983531437577054, guid: 2aff8ff2ab4cd614e9da713bfcc07ffe, type: 3}
+      propertyPath: _pins.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2038330183307337289, guid: 2aff8ff2ab4cd614e9da713bfcc07ffe, type: 3}
