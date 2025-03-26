@@ -60,7 +60,8 @@ MonoBehaviour:
   _enemyManager: {fileID: 2383109147688689574}
   _healthBar: {fileID: 1546673800691663558}
   _endLevelWindow: {fileID: 0}
-  _timer: {fileID: 0}
+  _levelsConfig: {fileID: 11400000, guid: 559578ee06ba92248bdc943dc4a8fb95, type: 2}
+  _timer: {fileID: 629422237146062338}
 --- !u!223 &2526238699885364355
 Canvas:
   m_ObjectHideFlags: 0
@@ -347,6 +348,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4853874cd515c4d469b3e064b02a62dc, type: 3}
+--- !u!114 &629422237146062338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5644478926832026677, guid: 4853874cd515c4d469b3e064b02a62dc, type: 3}
+  m_PrefabInstance: {fileID: 5109650012385761847}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4452f031bad808743971b42893ce4938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6561030265128532514 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2153962926464065557, guid: 4853874cd515c4d469b3e064b02a62dc, type: 3}

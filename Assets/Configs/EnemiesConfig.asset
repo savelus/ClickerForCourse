@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 595060448901215264, guid: 8569260beb1429640984b2d3ba751794, type: 3}
   Enemies:
-  - Health: 10
+  - Id: enemy
     Sprite: {fileID: 7605525642143581093, guid: 4891a7030398a024fa02f38e6651658a, type: 3}

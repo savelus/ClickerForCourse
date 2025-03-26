@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Game.Configs.EnemyConfigs;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -13,9 +14,9 @@ namespace Game.Enemies {
         private float _health;
         private Sequence _currentSequenceDamage;
 
-        public void Initialize(EnemyData enemyData) {
-            _health = enemyData.Health;
-            _image.sprite = enemyData.Sprite;
+        public void Initialize(Sprite sprite, float health) {
+            _health = health;
+            _image.sprite = sprite;
             
             SetCurrentSequenceDamage();
         }

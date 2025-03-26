@@ -12,7 +12,7 @@ namespace Meta.Locations {
         
         private int _currentLocation;
 
-        public void Initialize(int currentLocation, UnityAction<Vector2Int> startLevelCallback) {
+        public void Initialize(int currentLocation, UnityAction<int, int> startLevelCallback) {
             _currentLocation = currentLocation;
             InitLocations(currentLocation, startLevelCallback);
             InitializeMoveLocationButtons();
@@ -59,10 +59,10 @@ namespace Meta.Locations {
             }
         }
         
-        private void InitLocations(int currentLocation, UnityAction<Vector2Int> startLevelCallback) {
+        private void InitLocations(int currentLocation, UnityAction<int, int> startLevelCallback) {
             for (var i = 0; i < _locations.Count; i++) {
                 var locationNumber = i + 1;
-                _locations[i].Initialize(level => startLevelCallback?.Invoke(new(locationNumber, level)));
+                _locations[i].Initialize(level => startLevelCallback?.Invoke(locationNumber, level));
                 _locations[i].SetActive(currentLocation == locationNumber);
             }
         }

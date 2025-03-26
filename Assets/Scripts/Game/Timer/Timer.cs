@@ -12,7 +12,7 @@ namespace Game.Timer {
     
         public event UnityAction OnTimerEnd;
     
-        public void Initialize(float maxTime) {
+        public void SetValue(float maxTime) {
             _maxTime = maxTime;
             _currentTime = maxTime;
             Play();
@@ -33,6 +33,10 @@ namespace Game.Timer {
 
         public void Resume() {
             _isPlaying = true;
+        }
+
+        public void SetActive(bool isActive) {
+            gameObject.SetActive(isActive);
         }
 
         private void FixedUpdate() {
