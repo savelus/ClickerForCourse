@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Global.SaveSystem.SavableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -12,9 +14,9 @@ namespace Meta.Locations {
         
         private int _currentLocation;
 
-        public void Initialize(int currentLocation, UnityAction<int, int> startLevelCallback) {
-            _currentLocation = currentLocation;
-            InitLocations(currentLocation, startLevelCallback);
+        public void Initialize(Progress progress, UnityAction<int, int> startLevelCallback) {
+            _currentLocation = progress.CurrentLocation;
+            InitLocations(progress, startLevelCallback);
             InitializeMoveLocationButtons();
         }
 
@@ -59,11 +61,21 @@ namespace Meta.Locations {
             }
         }
         
-        private void InitLocations(int currentLocation, UnityAction<int, int> startLevelCallback) {
+        private void InitLocations(Progress progress, UnityAction<int, int> startLevelCallback) {
             for (var i = 0; i < _locations.Count; i++) {
                 var locationNumber = i + 1;
-                _locations[i].Initialize(level => startLevelCallback?.Invoke(locationNumber, level));
-                _locations[i].SetActive(currentLocation == locationNumber);
+
+                var isLocationPassed = progress.CurrentLocation > locationNumber 
+                    ? ProgressState.Passed 
+                    : progress.CurrentLocation == locationNumber 
+                        ? ProgressState.Current 
+                        : ProgressState.Closed;
+                
+                var currentLevel = progress.CurrentLevel;
+                
+                
+                _locations[i].Initialize(isLocationPassed, currentLevel, level => startLevelCallback?.Invoke(locationNumber, level));
+                _locations[i].SetActive(progress.CurrentLocation == locationNumber);
             }
         }
     }

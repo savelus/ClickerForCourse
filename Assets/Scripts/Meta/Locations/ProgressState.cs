@@ -1,5 +1,5 @@
 ﻿namespace Meta.Locations {
-    public enum PinType {
+    public enum ProgressState {
         Passed = 1,
         Closed = 2,
         Current = 3

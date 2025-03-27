@@ -1,8 +1,11 @@
 using Game.ClickButton;
 using Game.Configs.LevelConfigs;
 using Game.Enemies;
+using Global.SaveSystem;
 using SceneManagement;
+using UnityEditor;
 using UnityEngine;
+using Progress = Global.SaveSystem.SavableObjects.Progress;
 
 namespace Game {
     public class GameManager : EntryPoint {
@@ -15,10 +18,13 @@ namespace Game {
         [SerializeField] private Timer.Timer _timer;
         
         private GameEnterParams _gameEnterParams;
+        private SaveSystem _saveSystem;
 
         private const string SCENE_LOADER_TAG = "SceneLoader";
         
         public override void Run(SceneEnterParams enterParams) {
+            _saveSystem = FindFirstObjectByType<SaveSystem>();
+            
             if (enterParams is not GameEnterParams gameEnterParams) {
                 Debug.LogError("troubles with enter params into game");
                 return;
@@ -38,8 +44,30 @@ namespace Game {
         }
 
         private void LevelPassed(bool isPassed) {
-            if (isPassed) _endLevelWindow.ShowWinWindow();
-            else _endLevelWindow.ShowLoseWindow();
+            if (isPassed) {
+                TrySaveProgress();
+                _endLevelWindow.ShowWinWindow();
+            }
+            else {
+                _endLevelWindow.ShowLoseWindow();
+            }
+        }
+
+        private void TrySaveProgress() {
+            var progress = (Progress)_saveSystem.GetData(SavableObjectType.Progress);
+            if (_gameEnterParams.Location != progress.CurrentLocation ||
+                _gameEnterParams.Level != progress.CurrentLevel) return;
+            
+            var maxLevel = _levelsConfig.GetMaxLevelOnLocation(progress.CurrentLocation);
+            if (progress.CurrentLevel >= maxLevel) {
+                progress.CurrentLevel = 1;
+                progress.CurrentLocation++;
+            }
+            else {
+                progress.CurrentLevel++;
+            }
+            
+            _saveSystem.SaveData(SavableObjectType.Progress);
         }
 
         private void StartLevel() {

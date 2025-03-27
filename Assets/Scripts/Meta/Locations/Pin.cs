@@ -19,17 +19,17 @@ namespace Meta.Locations {
 
         private Sequence _currentLevelSequence;
         
-        public void Initialize(int levelNumber, PinType pinType, UnityAction clickCallback) {
+        public void Initialize(int levelNumber, ProgressState progressState, UnityAction clickCallback) {
             SetupCurrentLevelSequence();
             _text.text = $"Ур. {levelNumber}";
 
-            _image.color = pinType switch {
-                PinType.Current => _currentLevel,
-                PinType.Closed => _closedLevel,
-                PinType.Passed => _passedLevel
+            _image.color = progressState switch {
+                ProgressState.Current => _currentLevel,
+                ProgressState.Closed => _closedLevel,
+                ProgressState.Passed => _passedLevel
             };
 
-            if (pinType == PinType.Current) {
+            if (progressState == ProgressState.Current) {
                 transform.DORotate(new(0, 0, 25f), 0.1f).OnComplete(() => _currentLevelSequence.Play());
             }
 
