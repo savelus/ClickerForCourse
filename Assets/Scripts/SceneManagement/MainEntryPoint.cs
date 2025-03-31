@@ -1,3 +1,4 @@
+using Global.Audio;
 using Global.SaveSystem;
 using UnityEngine;
 
@@ -11,6 +12,14 @@ namespace SceneManagement {
             var sceneLoaderPrefab = Resources.Load<SceneLoader>("SceneLoader");
             var sceneLoader = Instantiate(sceneLoaderPrefab);
             DontDestroyOnLoad(sceneLoader);
+            
+            
+            var audioManagerPrefab = Resources.Load<AudioManager>("AudioManager");
+            var audioManager = Instantiate(audioManagerPrefab);
+            audioManager.LoadOnce();
+            DontDestroyOnLoad(audioManager);
+            
+            sceneLoader.Initialize(audioManager);
             
             var saveSystem = new GameObject().AddComponent<SaveSystem>();
             saveSystem.Initialize();
