@@ -1,8 +1,11 @@
 using Game.ClickButton;
 using Game.Configs.LevelConfigs;
+using Game.Configs.SkillsConfig;
 using Game.Enemies;
+using Game.Skills;
 using Global.Audio;
 using Global.SaveSystem;
+using Global.SaveSystem.SavableObjects;
 using SceneManagement;
 using UnityEditor;
 using UnityEngine;
@@ -15,12 +18,14 @@ namespace Game {
         [SerializeField] private HealthBar.HealthBar _healthBar;
         [SerializeField] private EndLevelWindow.EndLevelWindow _endLevelWindow;
         [SerializeField] private LevelsConfig _levelsConfig;
+        [SerializeField] private SkillsConfig _skillsConfig;
 
         [SerializeField] private Timer.Timer _timer;
         
         private GameEnterParams _gameEnterParams;
         private SaveSystem _saveSystem;
         private AudioManager _audioManager;
+        private SkillSystem _skillSystem;
 
         private const string SCENE_LOADER_TAG = "SceneLoader";
         
@@ -38,8 +43,14 @@ namespace Game {
             _clickButtonManager.Initialize();
             _enemyManager.Initialize(_healthBar, _timer);
             _endLevelWindow.Initialize();
+            
+            var openedSkills = (OpenedSkills)_saveSystem.GetData(SavableObjectType.OpenedSkills);
+            _skillSystem = new(openedSkills, _skillsConfig, _enemyManager);
 
-            _clickButtonManager.OnClicked += () => _enemyManager.DamageCurrentEnemy(1f);
+            _clickButtonManager.OnClicked += () => {
+                _enemyManager.DamageCurrentEnemy(1f);
+                _skillSystem.InvokeTrigger(SkillTrigger.OnDamage);
+            };
             _endLevelWindow.OnRestartClicked += RestartLevel;
             _enemyManager.OnLevelPassed += LevelPassed;
 
