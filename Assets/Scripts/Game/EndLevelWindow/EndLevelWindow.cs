@@ -10,11 +10,15 @@ namespace Game.EndLevelWindow {
         [SerializeField] private Button _loseRestartButton;
         [SerializeField] private Button _winRestartButton;
 
+        [SerializeField] private Button _goMetaButton;
+
         public event UnityAction OnRestartClicked;
+        public event UnityAction OnMetaClicked;
 
         public void Initialize() {
             _loseRestartButton.onClick.AddListener(Restart);
             _winRestartButton.onClick.AddListener(Restart);
+            _goMetaButton.onClick.AddListener(() => OnMetaClicked?.Invoke());
         }
 
         public void ShowLoseWindow() {

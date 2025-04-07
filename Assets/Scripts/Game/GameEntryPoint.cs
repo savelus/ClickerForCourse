@@ -25,13 +25,18 @@ namespace Game {
         private GameEnterParams _gameEnterParams;
         private SaveSystem _saveSystem;
         private AudioManager _audioManager;
+        
         private SkillSystem _skillSystem;
+        private EndLevelSystem _endLevelSystem;
+        private SceneLoader _sceneLoader;
 
-        private const string SCENE_LOADER_TAG = "SceneLoader";
+        private const string COMMON_OBJECT_TAG = "CommonObject";
         
         public override void Run(SceneEnterParams enterParams) {
-            _saveSystem = FindFirstObjectByType<SaveSystem>();
-            _audioManager = FindFirstObjectByType<AudioManager>();
+            var commonObject = GameObject.FindWithTag(COMMON_OBJECT_TAG).GetComponent<CommonObject>();
+            _saveSystem = commonObject.SaveSystem;
+            _audioManager = commonObject.AudioManager;
+            _sceneLoader = commonObject.SceneLoader;
             
             if (enterParams is not GameEnterParams gameEnterParams) {
                 Debug.LogError("troubles with enter params into game");
@@ -46,54 +51,40 @@ namespace Game {
             
             var openedSkills = (OpenedSkills)_saveSystem.GetData(SavableObjectType.OpenedSkills);
             _skillSystem = new(openedSkills, _skillsConfig, _enemyManager);
-
+            _endLevelSystem = new(_endLevelWindow, _saveSystem, _gameEnterParams, _levelsConfig);
+            
             _clickButtonManager.OnClicked += () => {
-                _enemyManager.DamageCurrentEnemy(1f);
                 _skillSystem.InvokeTrigger(SkillTrigger.OnDamage);
             };
+            
             _endLevelWindow.OnRestartClicked += RestartLevel;
-            _enemyManager.OnLevelPassed += LevelPassed;
+            _endLevelWindow.OnMetaClicked += GoToMeta;
+            _enemyManager.OnLevelPassed += _endLevelSystem.LevelPassed;
 
             _audioManager.PlayClip(AudioNames.BackgroundGameMusic);
             StartLevel();
         }
 
-        private void LevelPassed(bool isPassed) {
-            if (isPassed) {
-                TrySaveProgress();
-                _endLevelWindow.ShowWinWindow();
-            }
-            else {
-                _endLevelWindow.ShowLoseWindow();
-            }
-        }
-
-        private void TrySaveProgress() {
-            var progress = (Progress)_saveSystem.GetData(SavableObjectType.Progress);
-            if (_gameEnterParams.Location != progress.CurrentLocation ||
-                _gameEnterParams.Level != progress.CurrentLevel) return;
-            
-            var maxLevel = _levelsConfig.GetMaxLevelOnLocation(progress.CurrentLocation);
-            if (progress.CurrentLevel >= maxLevel) {
-                progress.CurrentLevel = 1;
-                progress.CurrentLocation++;
-            }
-            else {
-                progress.CurrentLevel++;
-            }
-            
-            _saveSystem.SaveData(SavableObjectType.Progress);
-        }
-
         private void StartLevel() {
-            var levelData = _levelsConfig.GetLevel(_gameEnterParams.Location, _gameEnterParams.Level);
+            var maxLocationAndLevel = _levelsConfig.GetMaxLocationAndLevel();
+            var location = _gameEnterParams.Location;
+            var level = _gameEnterParams.Level;
+            if(location > maxLocationAndLevel.x ||
+               (location == maxLocationAndLevel.x && level > maxLocationAndLevel.y)) {
+                location = maxLocationAndLevel.x;
+                level = maxLocationAndLevel.y;
+            }
+            var levelData = _levelsConfig.GetLevel(location, level);
             
             _enemyManager.StartLevel(levelData);
         }
 
         private void RestartLevel() {
-            var sceneLoader = GameObject.FindWithTag(SCENE_LOADER_TAG).GetComponent<SceneLoader>();
-            sceneLoader.LoadGameplayScene(_gameEnterParams);
+            _sceneLoader.LoadGameplayScene(_gameEnterParams);
+        }
+
+        private void GoToMeta() {
+            _sceneLoader.LoadMetaScene();
         }
     }
 }

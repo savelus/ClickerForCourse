@@ -12,12 +12,15 @@ namespace Meta {
         
         private SaveSystem _saveSystem;
         private AudioManager _audioManager;
-        
-        private const string SCENE_LOADER_TAG = "SceneLoader";
+        private SceneLoader _sceneLoader;
+
+        private const string COMMON_OBJECT_TAG = "CommonObject";
 
         public override void Run(SceneEnterParams enterParams) {
-            _saveSystem = FindFirstObjectByType<SaveSystem>();
-            _audioManager = FindFirstObjectByType<AudioManager>();
+            var commonObject = GameObject.FindWithTag(COMMON_OBJECT_TAG).GetComponent<CommonObject>();
+            _saveSystem = commonObject.SaveSystem;
+            _audioManager = commonObject.AudioManager;
+            _sceneLoader = commonObject.SceneLoader;
 
             var progress = (Progress) _saveSystem.GetData(SavableObjectType.Progress);
             
@@ -27,8 +30,7 @@ namespace Meta {
         }
 
         private void StartLevel(int location, int level) {
-            var sceneLoader = GameObject.FindWithTag(SCENE_LOADER_TAG).GetComponent<SceneLoader>();
-            sceneLoader.LoadGameplayScene(new GameEnterParams(location, level));
+            _sceneLoader.LoadGameplayScene(new GameEnterParams(location, level));
         }
     }
 }

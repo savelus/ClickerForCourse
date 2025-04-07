@@ -3,10 +3,10 @@ using Global.SaveSystem.SavableObjects;
 using UnityEngine;
 
 namespace Global.SaveSystem {
-    public class SaveSystem : MonoBehaviour {
-        private Dictionary<SavableObjectType, ISavable> _savableObjects;
+    public class SaveSystem {
+        private readonly Dictionary<SavableObjectType, ISavable> _savableObjects;
 
-        public void Initialize() {
+        public SaveSystem() {
             _savableObjects = new() {
                 { SavableObjectType.Wallet, new Wallet() },
                 { SavableObjectType.Progress, new Progress() },
