@@ -19,7 +19,9 @@ MonoBehaviour:
       Value: 5
       Trigger: 1
       TriggerValue: 0
+      Cost: 10
     - Level: 2
       Value: 3
       Trigger: 1
       TriggerValue: 0
+      Cost: 12

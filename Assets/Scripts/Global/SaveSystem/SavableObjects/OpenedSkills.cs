@@ -8,5 +8,15 @@ namespace Global.SaveSystem.SavableObjects {
                 Level = 1
             }
         };
+
+        public SkillWithLevel GetSkillWithLevel(string skillId) {
+            foreach (var skillWithLevel in Skills) {
+                if (skillWithLevel.Id == skillId) {
+                    return skillWithLevel;
+                }
+            }
+
+            return null;
+        }
     }
 }
