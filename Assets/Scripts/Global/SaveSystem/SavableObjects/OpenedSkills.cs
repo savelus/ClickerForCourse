@@ -16,7 +16,13 @@ namespace Global.SaveSystem.SavableObjects {
                 }
             }
 
-            return null;
+            var newSkill = new SkillWithLevel() {
+                Id = skillId,
+                Level = 0
+            };
+            Skills.Add(newSkill);
+            
+            return newSkill;
         }
     }
 }
