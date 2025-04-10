@@ -45,17 +45,13 @@ namespace Game {
 
             _gameEnterParams = gameEnterParams;
             
-            _clickButtonManager.Initialize();
             _enemyManager.Initialize(_healthBar, _timer);
             _endLevelWindow.Initialize();
             
             var openedSkills = (OpenedSkills)_saveSystem.GetData(SavableObjectType.OpenedSkills);
             _skillSystem = new(openedSkills, _skillsConfig, _enemyManager);
             _endLevelSystem = new(_endLevelWindow, _saveSystem, _gameEnterParams, _levelsConfig);
-            
-            _clickButtonManager.OnClicked += () => {
-                _skillSystem.InvokeTrigger(SkillTrigger.OnDamage);
-            };
+            _clickButtonManager.Initialize(_skillSystem);
             
             _endLevelWindow.OnRestartClicked += RestartLevel;
             _endLevelWindow.OnMetaClicked += GoToMeta;

@@ -5,5 +5,8 @@
         OnTime = 3,
         OnTimerLeft = 4,
         OnStart = 5,
+        OnRed = 6,
+        OnBlue = 7,
+        OnGreen = 8,
     }
 }

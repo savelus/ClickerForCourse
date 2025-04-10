@@ -1,4 +1,5 @@
 ﻿using Game.Configs.EnemyConfigs;
+using Game.Configs.KNBConfig;
 using Game.Configs.LevelConfigs;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,7 @@ namespace Game.Enemies {
         private Timer.Timer _timer;
         private LevelData _levelData;
         private int _currentEnemyIndex;
+        private DamageType _currentEnemyDamageType;
 
         public event UnityAction<bool> OnLevelPassed;
     
@@ -45,7 +47,7 @@ namespace Game.Enemies {
             }
             
             var currentEnemy = _levelData.Enemies[_currentEnemyIndex];
-
+            _currentEnemyDamageType = currentEnemy.DamageType;
             _timer.SetActive(currentEnemy.IsBoss);
             if (currentEnemy.IsBoss) {
                 _timer.SetValue(currentEnemy.BossTime);
@@ -65,6 +67,10 @@ namespace Game.Enemies {
 
         public void DamageCurrentEnemy(float damage) {
             _currentEnemyMonoBehaviour.DoDamage(damage);
+        }
+
+        public DamageType GetCurrentEnemyDamageType() {
+            return _currentEnemyDamageType;
         }
     }
 }

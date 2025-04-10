@@ -9,7 +9,7 @@ namespace Global.SaveSystem.SavableObjects {
             }
         };
 
-        public SkillWithLevel GetSkillWithLevel(string skillId) {
+        public SkillWithLevel GetOrCreateSkillWithLevel(string skillId) {
             foreach (var skillWithLevel in Skills) {
                 if (skillWithLevel.Id == skillId) {
                     return skillWithLevel;

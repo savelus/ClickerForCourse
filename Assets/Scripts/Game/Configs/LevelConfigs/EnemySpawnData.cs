@@ -1,4 +1,6 @@
 ﻿using System;
+using Game.Configs.KNBConfig;
+using UnityEngine.Serialization;
 
 namespace Game.Configs.LevelConfigs {
     [Serializable]
@@ -7,5 +9,6 @@ namespace Game.Configs.LevelConfigs {
         public float Hp;
         public bool IsBoss;
         public float BossTime;
+        public DamageType DamageType;
     }
 }
