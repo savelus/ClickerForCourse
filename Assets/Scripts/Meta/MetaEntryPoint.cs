@@ -2,12 +2,14 @@ using Game.Configs.SkillsConfig;
 using Global.Audio;
 using Global.SaveSystem;
 using Global.SaveSystem.SavableObjects;
+using Global.Translator;
 using Meta.HUD;
 using Meta.Locations;
 using Meta.Shop;
 using SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace Meta {
     public class MetaEntryPoint : EntryPoint {
@@ -19,6 +21,7 @@ namespace Meta {
         private SaveSystem _saveSystem;
         private AudioManager _audioManager;
         private SceneLoader _sceneLoader;
+        private TranslatorManager _translatorManager;
 
         private const string COMMON_OBJECT_TAG = "CommonObject";
 
@@ -27,11 +30,12 @@ namespace Meta {
             _saveSystem = commonObject.SaveSystem;
             _audioManager = commonObject.AudioManager;
             _sceneLoader = commonObject.SceneLoader;
-
+            _translatorManager = commonObject.TranslatorManager;
+            
             var progress = (Progress) _saveSystem.GetData(SavableObjectType.Progress);
             
             _locationManager.Initialize(progress, StartLevel);
-            _shopWindow.Initialize(_saveSystem, _skillsConfig);
+            _shopWindow.Initialize(_saveSystem, _skillsConfig, _translatorManager);
             _tabsView.Initialize(OpenShop, OpenLocation);
             
             _audioManager.PlayClip(AudioNames.BackgroundMetaMusic);
@@ -42,6 +46,7 @@ namespace Meta {
         }
         
         private void OpenShop() { 
+            YG2.InterstitialAdvShow();
             _shopWindow.SetActive(true);
         }
 

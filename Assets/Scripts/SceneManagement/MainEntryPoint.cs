@@ -1,6 +1,7 @@
 using Global.Audio;
 using Global.SaveSystem;
 using UnityEngine;
+using YG;
 
 namespace SceneManagement {
     public class MainEntryPoint : MonoBehaviour {
@@ -19,6 +20,8 @@ namespace SceneManagement {
             
             commonObject.SaveSystem = new();
 
+            commonObject.TranslatorManager = new(YG2.lang);
+            
             commonObject.SceneLoader.LoadMetaScene();
         }
     }

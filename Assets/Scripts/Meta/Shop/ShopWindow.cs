@@ -2,6 +2,7 @@
 using Game.Configs.SkillsConfig;
 using Global.SaveSystem;
 using Global.SaveSystem.SavableObjects;
+using Global.Translator;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,8 +22,10 @@ namespace Meta.Shop {
         private OpenedSkills _openedSkills;
         private SkillsConfig _skillsConfig;
         private SaveSystem _saveSystem;
+        private TranslatorManager _translatorManager;
 
-        public void Initialize(SaveSystem saveSystem, SkillsConfig skillsConfig) {
+        public void Initialize(SaveSystem saveSystem, SkillsConfig skillsConfig, TranslatorManager translatorManager) {
+            _translatorManager = translatorManager;
             _saveSystem = saveSystem;
             _skillsConfig = skillsConfig;
             _openedSkills = (OpenedSkills) saveSystem.GetData(SavableObjectType.OpenedSkills);
@@ -45,7 +48,7 @@ namespace Meta.Shop {
                 if(!_itemsMap.ContainsKey(skillData.SkillId)) continue;
 
                 _itemsMap[skillData.SkillId].Initialize(skillId => SkillUpgrade(skillId, skillDataByLevel.Cost),
-                    skillData.SkillId,
+                    _translatorManager.Translate(skillData.SkillId + "Label"),
                     "",
                     skillDataByLevel.Cost,
                     _wallet.Coins >= skillDataByLevel.Cost,
