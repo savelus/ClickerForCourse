@@ -25,3 +25,69 @@ MonoBehaviour:
       Trigger: 1
       TriggerValue: 0
       Cost: 12
+  - SkillId: BlueDamageSkill
+    SkillLevels:
+    - Level: 1
+      Value: 1
+      Trigger: 7
+      TriggerValue: 0
+      Cost: 10
+    - Level: 2
+      Value: 2
+      Trigger: 7
+      TriggerValue: 0
+      Cost: 12
+    - Level: 2
+      Value: 3
+      Trigger: 7
+      TriggerValue: 0
+      Cost: 12
+    - Level: 0
+      Value: 3
+      Trigger: 7
+      TriggerValue: 0
+      Cost: 2
+  - SkillId: RedDamageSkill
+    SkillLevels:
+    - Level: 1
+      Value: 1
+      Trigger: 6
+      TriggerValue: 0
+      Cost: 10
+    - Level: 2
+      Value: 2
+      Trigger: 6
+      TriggerValue: 0
+      Cost: 12
+    - Level: 2
+      Value: 3
+      Trigger: 6
+      TriggerValue: 0
+      Cost: 12
+    - Level: 0
+      Value: 3
+      Trigger: 6
+      TriggerValue: 0
+      Cost: 5
+  - SkillId: GreenDamageSkill
+    SkillLevels:
+    - Level: 1
+      Value: 1
+      Trigger: 8
+      TriggerValue: 0
+      Cost: 10
+    - Level: 2
+      Value: 2
+      Trigger: 8
+      TriggerValue: 0
+      Cost: 12
+    - Level: 2
+      Value: 3
+      Trigger: 8
+      TriggerValue: 0
+      Cost: 12
+    - Level: 0
+      Value: 0
+      Trigger: 8
+      TriggerValue: 0
+      Cost: 5

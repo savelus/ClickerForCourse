@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Extensions;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,8 +9,10 @@ namespace Game.Configs.LevelConfigs {
     [CreateAssetMenu(menuName="Configs/LevelsConfig", fileName = "LevelsConfig")]
     public class LevelsConfig : ScriptableObject {
         [SerializeField] private List<LevelData> _levels;
+        [SerializeField] private List<LocationData> _locations;
 
         private Dictionary<int, Dictionary<int, LevelData>> _levelsMap;
+        private Dictionary<int, LocationData> _locationsMap;
         
         public LevelData GetLevel(int location, int level) {
             if (_levelsMap.IsNullOrEmpty()) FillLevelMap();
@@ -40,6 +44,16 @@ namespace Game.Configs.LevelConfigs {
             }
 
             return locationAndLevel;
+        }
+
+        public Sprite GetLocationBg(int location) {
+            if (_locationsMap.IsNullOrEmpty()) FillLocationMap();
+
+            return _locationsMap[location].Background;
+        }
+
+        private void FillLocationMap() {
+            _locationsMap = _locations.ToDictionary(x => x.Number);
         }
 
         private void FillLevelMap() {

@@ -9,6 +9,5 @@ namespace Game.Configs.LevelConfigs {
         public float Hp;
         public bool IsBoss;
         public float BossTime;
-        public DamageType DamageType;
     }
 }

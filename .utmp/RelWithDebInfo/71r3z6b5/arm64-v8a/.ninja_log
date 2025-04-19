@@ -1,12 +1,12 @@
 # ninja log v5
-57	661	7636719754593154	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	da74b265875f9c22
-663	881	7636719756730347	C:/Repos/Unity/ClickerLessonGigaSchool/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/71r3z6b5/obj/arm64-v8a/libswappywrapper.so	e8ea4c03a61c92c2
-35	2340	7636719771256803	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ed83abbb86ac050b
-17	2376	7636719771665881	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	b302c80a893c46bb
-49	2412	7636719772030210	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	3987cbeb0919f3a0
-7	2420	7636719772148721	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	fc6497b2c02cfd55
-0	2492	7636719772836122	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	45848f33c57e89ac
-41	2516	7636719773133137	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1d49278ebb27e103
-24	2785	7636719775824104	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	d41e7d320e6cdf05
-12	2931	7636719777273999	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c6109087459ee6ac
-2931	3017	7636719778194499	C:/Repos/Unity/ClickerLessonGigaSchool/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/71r3z6b5/obj/arm64-v8a/libgame.so	672ab3302b6c12eb
+92	745	7664291981829508	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	da74b265875f9c22
+748	996	7664291984389878	C:/Repos/Unity/ClickerLessonGigaSchool/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/71r3z6b5/obj/arm64-v8a/libswappywrapper.so	e8ea4c03a61c92c2
+42	3222	7664292006568306	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ed83abbb86ac050b
+52	3251	7664292006849430	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	b302c80a893c46bb
+23	3294	7664292007263135	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	fc6497b2c02cfd55
+64	3321	7664292007358394	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	3987cbeb0919f3a0
+81	3434	7664292008498093	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1d49278ebb27e103
+2	3437	7664292008587095	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	45848f33c57e89ac
+34	3759	7664292011804049	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	d41e7d320e6cdf05
+13	3877	7664292012953845	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c6109087459ee6ac
+3878	4100	7664292015282667	C:/Repos/Unity/ClickerLessonGigaSchool/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/71r3z6b5/obj/arm64-v8a/libgame.so	672ab3302b6c12eb

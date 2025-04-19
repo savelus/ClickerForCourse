@@ -2,6 +2,7 @@ using Game.Configs.SkillsConfig;
 using Global.Audio;
 using Global.SaveSystem;
 using Global.SaveSystem.SavableObjects;
+using Meta.HUD;
 using Meta.Locations;
 using Meta.Shop;
 using SceneManagement;
@@ -13,6 +14,7 @@ namespace Meta {
         [SerializeField] private LocationManager _locationManager;
         [SerializeField] private ShopWindow _shopWindow;
         [SerializeField] private SkillsConfig _skillsConfig;
+        [SerializeField] private TabsView _tabsView;
         
         private SaveSystem _saveSystem;
         private AudioManager _audioManager;
@@ -30,12 +32,21 @@ namespace Meta {
             
             _locationManager.Initialize(progress, StartLevel);
             _shopWindow.Initialize(_saveSystem, _skillsConfig);
+            _tabsView.Initialize(OpenShop, OpenLocation);
             
             _audioManager.PlayClip(AudioNames.BackgroundMetaMusic);
         }
 
         private void StartLevel(int location, int level) {
             _sceneLoader.LoadGameplayScene(new GameEnterParams(location, level));
+        }
+        
+        private void OpenShop() { 
+            _shopWindow.SetActive(true);
+        }
+
+        private void OpenLocation() {
+            _shopWindow.SetActive(false);
         }
     }
 }

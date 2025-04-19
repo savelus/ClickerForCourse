@@ -6,7 +6,11 @@ namespace Global.SaveSystem.SavableObjects {
             new SkillWithLevel() {
                 Id = "AdditionalDamageSkill", 
                 Level = 1
-            }
+            },
+            new SkillWithLevel() {
+                Id = "BlueDamageSkill", 
+                Level = 1
+            },
         };
 
         public SkillWithLevel GetOrCreateSkillWithLevel(string skillId) {

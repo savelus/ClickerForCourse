@@ -33,6 +33,10 @@ namespace Meta.Shop {
             ShowShopItems();
         }
 
+        public void SetActive(bool isActive) {
+            gameObject.SetActive(isActive);
+        }
+
         private void ShowShopItems() {
             foreach (var skillData in _skillsConfig.Skills) {
                 var skillWithLevel = _openedSkills.GetOrCreateSkillWithLevel(skillData.SkillId);
@@ -59,7 +63,7 @@ namespace Meta.Shop {
         private void SkillUpgrade(string skillId, int cost) {
             var skillWithLevel = _openedSkills.GetOrCreateSkillWithLevel(skillId);
             skillWithLevel.Level++;
-            _wallet.Coins -= cost;
+            _wallet.ChangeCoins(-cost);
             
             _saveSystem.SaveData(SavableObjectType.Wallet);
             _saveSystem.SaveData(SavableObjectType.OpenedSkills);

@@ -14,5 +14,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 595060448901215264, guid: 8569260beb1429640984b2d3ba751794, type: 3}
   Enemies:
-  - Id: enemy
-    Sprite: {fileID: 7605525642143581093, guid: 4891a7030398a024fa02f38e6651658a, type: 3}
+  - Id: big_ent
+    Sprite: {fileID: 21300000, guid: 8cfd8220b5c8f29409d0c646e81c0865, type: 3}
+    DamageType: 2
+  - Id: cinder_bat
+    Sprite: {fileID: 21300000, guid: fbd365282116a804cadb586ff4508673, type: 3}
+    DamageType: 0
+  - Id: creepy_mushroom
+    Sprite: {fileID: 21300000, guid: dd0d6a168880b02449bad544ba2e5a72, type: 3}
+    DamageType: 2
+  - Id: dangerous_light
+    Sprite: {fileID: 21300000, guid: d478eb7704bf9c546b394ce2403ac237, type: 3}
+    DamageType: 0
+  - Id: green_light
+    Sprite: {fileID: 21300000, guid: 4e93577212867e24897e06f12bb42c2b, type: 3}
+    DamageType: 1
+  - Id: hard_shell
+    Sprite: {fileID: 21300000, guid: 2ec36f51c45e9e54088f71055923dd7f, type: 3}
+    DamageType: 0
+  - Id: hidden_vines
+    Sprite: {fileID: 21300000, guid: 60b44d3f21064e943b5e112838787b51, type: 3}
+    DamageType: 2
+  - Id: horror_jungle
+    Sprite: {fileID: 21300000, guid: 3a1977fad8299674f94de432f8123784, type: 3}
+    DamageType: 1
+  - Id: lava_golem
+    Sprite: {fileID: 21300000, guid: f23bd5eaab7bec046910564081fe9548, type: 3}
+    DamageType: 2
+  - Id: lizard
+    Sprite: {fileID: 21300000, guid: 21a34a7a649c9fa49ad6bafb97968bb7, type: 3}
+    DamageType: 0
+  - Id: moss_wolf
+    Sprite: {fileID: 21300000, guid: 7295aaf74cbb0b34cbea84be0c3797b0, type: 3}
+    DamageType: 1
+  - Id: poisonous_leech
+    Sprite: {fileID: 21300000, guid: b4d401f530304d84e8b23365dba9bfb3, type: 3}
+    DamageType: 1
+  - Id: revived_quagmire
+    Sprite: {fileID: 21300000, guid: ab918aec406b90c40aa05973235671a5, type: 3}
+    DamageType: 0
+  - Id: sand_crumb
+    Sprite: {fileID: 21300000, guid: 091efc99a369ea3499aa4d8a435ee862, type: 3}
+    DamageType: 0
+  - Id: sandworm
+    Sprite: {fileID: 21300000, guid: 9b95ab4281e05a34892aa07cf0fcea80, type: 3}
+    DamageType: 2
+  - Id: spiky_satyr
+    Sprite: {fileID: 21300000, guid: dff61974a111feb46aaeadbe1b6aedd9, type: 3}
+    DamageType: 2
+  - Id: toothy_toad
+    Sprite: {fileID: 21300000, guid: 151aaa8f3f915b74e8591dc946476716, type: 3}
+    DamageType: 1
+  - Id: tropical_cat
+    Sprite: {fileID: 21300000, guid: 2b2aa4c7361f7344686d6fb0218f04ff, type: 3}
+    DamageType: 1
+  - Id: yellow_ent
+    Sprite: {fileID: 21300000, guid: 3481a92b7241db242805298219b79c6e, type: 3}
+    DamageType: 0
+  - Id: ashen_spirit
+    Sprite: {fileID: 7375680796228506765, guid: 731bb72cb371ca54699d36e182353efd, type: 3}
+    DamageType: 0

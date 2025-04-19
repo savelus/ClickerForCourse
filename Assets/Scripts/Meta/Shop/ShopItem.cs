@@ -18,6 +18,7 @@ namespace Meta.Shop {
             int cost,
             bool isEnough, 
             bool isMaxLevel) {
+            _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(() => onClick?.Invoke(SkillId));
             _label.text = label;
             _description.text = description;

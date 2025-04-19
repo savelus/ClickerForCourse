@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Configs.KNBConfig;
 using Game.Configs.SkillsConfig;
 using Game.Enemies;
 using Global.SaveSystem.SavableObjects;
@@ -11,11 +12,13 @@ namespace Game.Skills {
 
         private Dictionary<SkillTrigger, List<Skill>> _skillsByTrigger;
         
-        public SkillSystem(OpenedSkills openedSkills, SkillsConfig skillsConfig, EnemyManager enemyManager) {
+        public SkillSystem(OpenedSkills openedSkills, SkillsConfig skillsConfig, EnemyManager enemyManager,
+            KNBConfig knbConfig) {
             _skillsConfig = skillsConfig;
             _skillsByTrigger = new();
             _scope = new() {
-                EnemyManager = enemyManager
+                EnemyManager = enemyManager,
+                KnbConfig = knbConfig
             };
             
             foreach (var skill in openedSkills.Skills) {

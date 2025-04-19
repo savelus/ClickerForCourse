@@ -47,7 +47,6 @@ namespace Game.Enemies {
             }
             
             var currentEnemy = _levelData.Enemies[_currentEnemyIndex];
-            _currentEnemyDamageType = currentEnemy.DamageType;
             _timer.SetActive(currentEnemy.IsBoss);
             if (currentEnemy.IsBoss) {
                 _timer.SetValue(currentEnemy.BossTime);
@@ -56,8 +55,9 @@ namespace Game.Enemies {
             
             InitHpBar(currentEnemy.Hp);
 
-            var currentEnemyViewData = _enemiesConfig.GetEnemy(currentEnemy.Id);
-            _currentEnemyMonoBehaviour.Initialize(currentEnemyViewData.Sprite, currentEnemy.Hp);
+            var enemyStaticData = _enemiesConfig.GetEnemy(currentEnemy.Id);
+            _currentEnemyDamageType = enemyStaticData.DamageType;
+            _currentEnemyMonoBehaviour.Initialize(enemyStaticData.Sprite, currentEnemy.Hp);
         }
 
         private void InitHpBar(float health) {

@@ -16,8 +16,71 @@ MonoBehaviour:
   - Location: 1
     LevelNumber: 1
     Enemies:
-    - Id: enemy
-      Hp: 1
+    - Id: green_light
+      Hp: 30
       IsBoss: 0
       BossTime: 0
-    Reward: 0
+    - Id: hard_shell
+      Hp: 30
+      IsBoss: 0
+      BossTime: 0
+    Reward: 10
+  - Location: 1
+    LevelNumber: 2
+    Enemies:
+    - Id: cinder_bat
+      Hp: 20
+      IsBoss: 0
+      BossTime: 0
+    - Id: creepy_mushroom
+      Hp: 40
+      IsBoss: 0
+      BossTime: 0
+    Reward: 15
+  - Location: 1
+    LevelNumber: 3
+    Enemies:
+    - Id: dangerous_light
+      Hp: 25
+      IsBoss: 0
+      BossTime: 0
+    - Id: creepy_mushroom
+      Hp: 45
+      IsBoss: 0
+      BossTime: 0
+    Reward: 20
+  - Location: 1
+    LevelNumber: 4
+    Enemies:
+    - Id: dangerous_light
+      Hp: 25
+      IsBoss: 0
+      BossTime: 0
+    - Id: creepy_mushroom
+      Hp: 45
+      IsBoss: 0
+      BossTime: 0
+    - Id: hidden_vines
+      Hp: 60
+      IsBoss: 1
+      BossTime: 60
+    Reward: 50
+  - Location: 1
+    LevelNumber: 4
+    Enemies:
+    - Id: creepy_mushroom
+      Hp: 45
+      IsBoss: 0
+      BossTime: 0
+    Reward: 50
+  _locations:
+  - Number: 1
+    Background: {fileID: 21300000, guid: 7a97ab0aea80fe040ae9c9470a4eb2a9, type: 3}
+  - Number: 2
+    Background: {fileID: 8538731959371276739, guid: abcaebf771c49ac4e938ac83f60c551a, type: 3}
+  - Number: 3
+    Background: {fileID: -4802136101318132187, guid: 91d1c0e0c2f9a4e4aaeba54fa85e4225, type: 3}
+  - Number: 4
+    Background: {fileID: -1484196568427285194, guid: 670241df50cf622498c1a4b5ff74f7a5, type: 3}
+  - Number: 5
+    Background: {fileID: -6986285009612923507, guid: 7a779872d27599f49a2afa7248b3574c, type: 3}

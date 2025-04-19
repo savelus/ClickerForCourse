@@ -19,7 +19,9 @@ namespace Game.Configs.KNBConfig {
         private void FillDataMap() {
             _dataMap = new();
             foreach (var data in _data) {
-                _dataMap[data.From] ??= new();
+                if (!_dataMap.ContainsKey(data.From)) {
+                    _dataMap[data.From] = new();
+                }
                 _dataMap[data.From][data.To] = data.Multiplier;
             }
         }

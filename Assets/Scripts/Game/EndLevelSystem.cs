@@ -31,6 +31,10 @@ namespace Game {
         }
         
         private void TrySaveProgress() {
+            var wallet = (Wallet)_saveSystem.GetData(SavableObjectType.Wallet);
+            wallet.ChangeCoins(_levelsConfig.GetLevel(_gameEnterParams.Location, _gameEnterParams.Level).Reward);
+            _saveSystem.SaveData(SavableObjectType.Wallet);
+            
             var progress = (Progress)_saveSystem.GetData(SavableObjectType.Progress);
             if (_gameEnterParams.Location != progress.CurrentLocation ||
                 _gameEnterParams.Level != progress.CurrentLevel) return;

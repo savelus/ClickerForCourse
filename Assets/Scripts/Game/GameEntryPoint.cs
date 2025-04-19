@@ -1,4 +1,5 @@
 using Game.ClickButton;
+using Game.Configs.KNBConfig;
 using Game.Configs.LevelConfigs;
 using Game.Configs.SkillsConfig;
 using Game.Enemies;
@@ -7,9 +8,8 @@ using Global.Audio;
 using Global.SaveSystem;
 using Global.SaveSystem.SavableObjects;
 using SceneManagement;
-using UnityEditor;
 using UnityEngine;
-using Progress = Global.SaveSystem.SavableObjects.Progress;
+using UnityEngine.UI;
 
 namespace Game {
     public class GameEntryPoint : EntryPoint {
@@ -17,11 +17,15 @@ namespace Game {
         [SerializeField] private EnemyManager _enemyManager;
         [SerializeField] private HealthBar.HealthBar _healthBar;
         [SerializeField] private EndLevelWindow.EndLevelWindow _endLevelWindow;
+        [SerializeField] private Timer.Timer _timer;
+        [SerializeField] private Image _background;
+
+
+        [Space] [Header("Configs")]
         [SerializeField] private LevelsConfig _levelsConfig;
         [SerializeField] private SkillsConfig _skillsConfig;
+        [SerializeField] private KNBConfig _knbConfig;
 
-        [SerializeField] private Timer.Timer _timer;
-        
         private GameEnterParams _gameEnterParams;
         private SaveSystem _saveSystem;
         private AudioManager _audioManager;
@@ -49,7 +53,7 @@ namespace Game {
             _endLevelWindow.Initialize();
             
             var openedSkills = (OpenedSkills)_saveSystem.GetData(SavableObjectType.OpenedSkills);
-            _skillSystem = new(openedSkills, _skillsConfig, _enemyManager);
+            _skillSystem = new(openedSkills, _skillsConfig, _enemyManager, _knbConfig);
             _endLevelSystem = new(_endLevelWindow, _saveSystem, _gameEnterParams, _levelsConfig);
             _clickButtonManager.Initialize(_skillSystem);
             
@@ -58,6 +62,8 @@ namespace Game {
             _enemyManager.OnLevelPassed += _endLevelSystem.LevelPassed;
 
             _audioManager.PlayClip(AudioNames.BackgroundGameMusic);
+
+            _background.sprite = _levelsConfig.GetLocationBg(_gameEnterParams.Location);
             StartLevel();
         }
 

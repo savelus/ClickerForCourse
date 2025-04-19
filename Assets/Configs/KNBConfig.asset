@@ -32,8 +32,8 @@ MonoBehaviour:
     To: 2
     Multiplier: 2
   - From: 2
-    To: 2
-    Multiplier: 1
+    To: 0
+    Multiplier: 2
   - From: 2
     To: 2
     Multiplier: 1
