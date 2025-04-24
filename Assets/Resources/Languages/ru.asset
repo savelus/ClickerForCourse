@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d51db101e634fd09b34a764b797cb11, type: 3}
   m_Name: ru
   m_EditorClassIdentifier: 
-  OnDamageSkillLabel: 
-  OnDamageSkillDescription: 
+  BlueDamageSkillLabel: "\u0431\u043B\u044E"
+  BlueDamageSkillDescription: "\u0432\u044B\u0432\u044B\u0432"

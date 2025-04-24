@@ -5,6 +5,7 @@ using Global.SaveSystem.SavableObjects;
 using Global.Translator;
 using Meta.HUD;
 using Meta.Locations;
+using Meta.RewardedAd;
 using Meta.Shop;
 using SceneManagement;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Meta {
         [SerializeField] private ShopWindow _shopWindow;
         [SerializeField] private SkillsConfig _skillsConfig;
         [SerializeField] private TabsView _tabsView;
+        [SerializeField] private RewardedAdManager _rewardedAdManager;
         
         private SaveSystem _saveSystem;
         private AudioManager _audioManager;
@@ -37,6 +39,10 @@ namespace Meta {
             _locationManager.Initialize(progress, StartLevel);
             _shopWindow.Initialize(_saveSystem, _skillsConfig, _translatorManager);
             _tabsView.Initialize(OpenShop, OpenLocation);
+            
+            _rewardedAdManager.Initialize(_saveSystem, 
+                callback => _tabsView.ShowRewardedButton(callback),
+                () => _tabsView.HideRewardedButton());
             
             _audioManager.PlayClip(AudioNames.BackgroundMetaMusic);
         }
