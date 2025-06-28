@@ -64,6 +64,12 @@ namespace Game.Configs.LevelConfigs {
                 locationMap[levelData.LevelNumber] = levelData; 
             }
         }
+
+        public string GetLocationName(int currentLocation) {
+            if (_locationsMap.IsNullOrEmpty()) FillLocationMap();
+            
+            return _locationsMap[currentLocation].LocationName;
+        }
     }
 }
     

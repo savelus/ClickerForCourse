@@ -15,19 +15,24 @@ namespace Game.Enemies {
         private LevelData _levelData;
         private int _currentEnemyIndex;
         private DamageType _currentEnemyDamageType;
+        private LevelInfoBlock _levelInfoBlock;
+        private int _maxLevelOnLocation;
 
         public event UnityAction<bool> OnLevelPassed;
     
-        public void Initialize(HealthBar.HealthBar healthBar, Timer.Timer timer) {
+        public void Initialize(HealthBar.HealthBar healthBar, Timer.Timer timer, LevelInfoBlock levelInfoBlock) {
+            _levelInfoBlock = levelInfoBlock;
             _timer = timer;
             _healthBar = healthBar;
         }
 
-        public void StartLevel(LevelData levelData) {
+        public void StartLevel(LevelData levelData, int maxLevelOnLocation) {
+            _maxLevelOnLocation = maxLevelOnLocation;
             _levelData = levelData;
+            
             _currentEnemyIndex = -1;
             
-            if (_currentEnemyMonoBehaviour == null) {
+            if (!_currentEnemyMonoBehaviour) {
                 _currentEnemyMonoBehaviour = Instantiate(_enemiesConfig.EnemyPrefab, _enemyContainer);
                 _currentEnemyMonoBehaviour.OnDead += SpawnEnemy;
                 _currentEnemyMonoBehaviour.OnDamaged += _healthBar.DecreaseValue;
@@ -58,6 +63,16 @@ namespace Game.Enemies {
             var enemyStaticData = _enemiesConfig.GetEnemy(currentEnemy.Id);
             _currentEnemyDamageType = enemyStaticData.DamageType;
             _currentEnemyMonoBehaviour.Initialize(enemyStaticData.Sprite, currentEnemy.Hp);
+
+            if (currentEnemy.IsBoss) {
+                _levelInfoBlock.ShowBossInfo();
+            }
+            else {
+                _levelInfoBlock.ShowStandardInfo(_levelData.LevelNumber, 
+                                         _maxLevelOnLocation,
+                                                 _currentEnemyIndex + 1,
+                                                 _levelData.Enemies.Count);
+            }
         }
 
         private void InitHpBar(float health) {

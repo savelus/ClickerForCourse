@@ -5,7 +5,7 @@
     ],
     "stringValues": [
         "{\"Coins\":160}",
-        "{\"CurrentLocation\":1,\"CurrentLevel\":2}"
+        "{\"CurrentLocation\":2,\"CurrentLevel\":1}"
     ],
     "floatKeys": [],
     "floatValues": [],
@@ -19,5 +19,5 @@
         false,
         false
     ],
-    "idSave": 4
+    "idSave": 9
 }

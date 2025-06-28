@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace Global.SaveSystem.SavableObjects {
     public class OpenedSkills : ISavable {

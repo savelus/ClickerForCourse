@@ -347,26 +347,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 5342926125370855649, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
-      propertyPath: m_Colors.m_ColorMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6085510024176127237, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
-      propertyPath: _timer
-      value: 
-      objectReference: {fileID: 470700333713645825}
-    - target: {fileID: 6085510024176127237, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
-      propertyPath: _levelsConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 559578ee06ba92248bdc943dc4a8fb95, type: 2}
-    - target: {fileID: 6085510024176127237, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
-      propertyPath: _skillsConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 53a0bfd749615684eabc6e4be7a4a5e9, type: 2}
     - target: {fileID: 6085510024176127237, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
       propertyPath: _endLevelWindow
       value: 
       objectReference: {fileID: 5729380316018017406}
+    - target: {fileID: 6510514903403410563, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+      propertyPath: _bossBlock
+      value: 
+      objectReference: {fileID: 470700333713645828}
+    - target: {fileID: 6510514903403410563, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+      propertyPath: _waveInfotext
+      value: 
+      objectReference: {fileID: 470700333713645825}
+    - target: {fileID: 6510514903403410563, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+      propertyPath: _levelInfoText
+      value: 
+      objectReference: {fileID: 470700333713645826}
+    - target: {fileID: 6510514903403410563, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+      propertyPath: _standardBlock
+      value: 
+      objectReference: {fileID: 470700333713645827}
     - target: {fileID: 7343031055549133450, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -447,10 +447,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8162338611014888532, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8312873632450416468, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -466,15 +462,36 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
 --- !u!114 &470700333713645825 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 629422237146062338, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2529296562443352152, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
   m_PrefabInstance: {fileID: 470700333713645824}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4452f031bad808743971b42893ce4938, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &470700333713645826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5748735983903990577, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+  m_PrefabInstance: {fileID: 470700333713645824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &470700333713645827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009896821866882184, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+  m_PrefabInstance: {fileID: 470700333713645824}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &470700333713645828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1232527353119264658, guid: 772f7f10c4ff32442ae681cb8edf0aa1, type: 3}
+  m_PrefabInstance: {fileID: 470700333713645824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5729380316018017405
 PrefabInstance:
   m_ObjectHideFlags: 0

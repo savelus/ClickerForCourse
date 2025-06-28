@@ -19,7 +19,7 @@ namespace Meta {
         [SerializeField] private SkillsConfig _skillsConfig;
         [SerializeField] private TabsView _tabsView;
         [SerializeField] private RewardedAdManager _rewardedAdManager;
-        
+
         private SaveSystem _saveSystem;
         private AudioManager _audioManager;
         private SceneLoader _sceneLoader;
@@ -33,31 +33,48 @@ namespace Meta {
             _audioManager = commonObject.AudioManager;
             _sceneLoader = commonObject.SceneLoader;
             _translatorManager = commonObject.TranslatorManager;
-            
-            var progress = (Progress) _saveSystem.GetData(SavableObjectType.Progress);
-            
-            _locationManager.Initialize(progress, StartLevel);
+
+            var progress = (Progress)_saveSystem.GetData(SavableObjectType.Progress);
+
             _shopWindow.Initialize(_saveSystem, _skillsConfig, _translatorManager);
             _tabsView.Initialize(OpenShop, OpenLocation);
-            
-            _rewardedAdManager.Initialize(_saveSystem, 
+            _locationManager.Initialize(progress, StartLevel, ChangeLocationName);
+
+            InitCoins();
+
+            _rewardedAdManager.Initialize(_saveSystem,
                 callback => _tabsView.ShowRewardedButton(callback),
                 () => _tabsView.HideRewardedButton());
-            
+
             _audioManager.PlayClip(AudioNames.BackgroundMetaMusic);
+        }
+
+        private void InitCoins() {
+            var wallet = (Wallet) _saveSystem.GetData(SavableObjectType.Wallet);
+            _tabsView.ChangeCoinsCount(wallet.Coins);
+            wallet.OnChanged += _tabsView.ChangeCoinsCount;
+        }
+
+        private void ChangeLocationName(string locationName) {
+            _tabsView.ChangeLocationName(locationName);
         }
 
         private void StartLevel(int location, int level) {
             _sceneLoader.LoadGameplayScene(new GameEnterParams(location, level));
         }
-        
-        private void OpenShop() { 
+
+        private void OpenShop() {
             YG2.InterstitialAdvShow();
             _shopWindow.SetActive(true);
         }
 
         private void OpenLocation() {
             _shopWindow.SetActive(false);
+        }
+        
+        private void OnDestroy() {
+            var wallet = (Wallet) _saveSystem.GetData(SavableObjectType.Wallet);
+            wallet.OnChanged -= _tabsView.ChangeCoinsCount;
         }
     }
 }

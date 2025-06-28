@@ -18,6 +18,8 @@ namespace Game {
         [SerializeField] private HealthBar.HealthBar _healthBar;
         [SerializeField] private EndLevelWindow.EndLevelWindow _endLevelWindow;
         [SerializeField] private Timer.Timer _timer;
+        [SerializeField] private LevelInfoBlock _levelInfoBlock;
+        [SerializeField] private GameHeader _gameHeader;
         [SerializeField] private Image _background;
 
 
@@ -49,13 +51,15 @@ namespace Game {
 
             _gameEnterParams = gameEnterParams;
             
-            _enemyManager.Initialize(_healthBar, _timer);
+            _enemyManager.Initialize(_healthBar, _timer, _levelInfoBlock);
             _endLevelWindow.Initialize();
             
             var openedSkills = (OpenedSkills)_saveSystem.GetData(SavableObjectType.OpenedSkills);
             _skillSystem = new(openedSkills, _skillsConfig, _enemyManager, _knbConfig);
             _endLevelSystem = new(_endLevelWindow, _saveSystem, _gameEnterParams, _levelsConfig);
             _clickButtonManager.Initialize(_skillSystem);
+            
+            _gameHeader.SetLocationNameText(_levelsConfig.GetLocationName(_gameEnterParams.Location));
             
             _endLevelWindow.OnRestartClicked += RestartLevel;
             _endLevelWindow.OnMetaClicked += GoToMeta;
@@ -64,7 +68,16 @@ namespace Game {
             _audioManager.PlayClip(AudioNames.BackgroundGameMusic);
 
             _background.sprite = _levelsConfig.GetLocationBg(_gameEnterParams.Location);
+
+            InitCoins();
+            
             StartLevel();
+        }
+
+        private void InitCoins() {
+            var wallet = (Wallet) _saveSystem.GetData(SavableObjectType.Wallet);
+            _gameHeader.ChangeCoinsCount(wallet.Coins);
+            wallet.OnChanged += _gameHeader.ChangeCoinsCount;
         }
 
         private void StartLevel() {
@@ -78,7 +91,7 @@ namespace Game {
             }
             var levelData = _levelsConfig.GetLevel(location, level);
             
-            _enemyManager.StartLevel(levelData);
+            _enemyManager.StartLevel(levelData, maxLocationAndLevel.y);
         }
 
         private void RestartLevel() {
@@ -87,6 +100,11 @@ namespace Game {
 
         private void GoToMeta() {
             _sceneLoader.LoadMetaScene();
+        }
+
+        private void OnDestroy() {
+            var wallet = (Wallet) _saveSystem.GetData(SavableObjectType.Wallet);
+            wallet.OnChanged -= _gameHeader.ChangeCoinsCount;
         }
     }
 }
