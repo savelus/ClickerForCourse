@@ -1,9 +1,11 @@
 {
     "stringKeys": [
-        "Wallet"
+        "Wallet",
+        "Progress"
     ],
     "stringValues": [
-        "{\"Coins\":100}"
+        "{\"Coins\":160}",
+        "{\"CurrentLocation\":1,\"CurrentLevel\":2}"
     ],
     "floatKeys": [],
     "floatValues": [],
@@ -17,5 +19,5 @@
         false,
         false
     ],
-    "idSave": 1
+    "idSave": 4
 }
