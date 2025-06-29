@@ -5,11 +5,7 @@ namespace Global.SaveSystem.SavableObjects {
     public class OpenedSkills : ISavable {
         public List<SkillWithLevel> Skills = new() {
             new SkillWithLevel() {
-                Id = "AdditionalDamageSkill", 
-                Level = 1
-            },
-            new SkillWithLevel() {
-                Id = "BlueDamageSkill", 
+                Id = "BlueDamageSkill",
                 Level = 1
             },
         };
@@ -26,7 +22,7 @@ namespace Global.SaveSystem.SavableObjects {
                 Level = 0
             };
             Skills.Add(newSkill);
-            
+
             return newSkill;
         }
     }

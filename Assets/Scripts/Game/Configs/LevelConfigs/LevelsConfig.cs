@@ -19,6 +19,15 @@ namespace Game.Configs.LevelConfigs {
             return _levelsMap[location][level];
         }
 
+        public int GetAbsoluteStartLevelOnLocation(int location) {
+            var absoluteLevel = 0;
+            for (int i = 1; i < location; i++) {
+                absoluteLevel += GetMaxLevelOnLocation(i);
+            }
+            
+            return absoluteLevel;
+        }
+
         public int GetMaxLevelOnLocation(int location) {
             if (_levelsMap.IsNullOrEmpty()) FillLevelMap();
             var maxLevel = 0;

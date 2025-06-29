@@ -9,7 +9,6 @@ namespace Meta.HUD {
         [SerializeField] private Button _shopWindowButton;
         [SerializeField] private Button _locationButton;
         [SerializeField] private Button _rewardedButton;
-        [SerializeField] private TextMeshProUGUI _locationNameText;
         [SerializeField] private TextMeshProUGUI _coinsCountText;
 
         public void Initialize(UnityAction onShop, UnityAction onLocation) {
@@ -20,10 +19,6 @@ namespace Meta.HUD {
         public void ShowRewardedButton(UnityAction callback) {
             _rewardedButton.onClick.RemoveAllListeners();
             _rewardedButton.onClick.AddListener(() => callback?.Invoke());
-        }
-
-        public void ChangeLocationName(string locationName) {
-            _locationNameText.text = locationName;
         }
 
         public void HideRewardedButton() {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Game.Configs.LevelConfigs;
 using Global.SaveSystem.SavableObjects;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -10,19 +11,17 @@ namespace Meta.Locations {
     public class LocationManager : MonoBehaviour {
         [SerializeField] private Button _previousButton;
         [SerializeField] private Button _nextButton;
+        [SerializeField] private TextMeshProUGUI _locationNameText;
 
         [SerializeField] private List<Location> _locations;
         [SerializeField] private LevelsConfig _levelsConfig;
 
         private int _currentLocation;
 
-        private event UnityAction<string> OnLocationChanged;
-
-        public void Initialize(Progress progress, UnityAction<int, int> startLevelCallback, UnityAction<string> locationChangeCallback) {
+        public void Initialize(Progress progress, UnityAction<int, int> startLevelCallback) {
             _currentLocation = progress.CurrentLocation;
-            OnLocationChanged += locationChangeCallback;
-            
-            OnLocationChanged?.Invoke(_levelsConfig.GetLocationName(_currentLocation));
+
+            ChangeLocationName();
             
             InitLocations(progress, startLevelCallback);
             InitializeMoveLocationButtons();
@@ -39,8 +38,10 @@ namespace Meta.Locations {
             if (_currentLocation == 1) {
                 _previousButton.gameObject.SetActive(false);
             }
+        }
 
-            OnLocationChanged?.Invoke(_levelsConfig.GetLocationName(_currentLocation));
+        private void ChangeLocationName() {
+            _locationNameText.text = _levelsConfig.GetLocationName(_currentLocation);
         }
 
         private void ShowNextLocation() {
@@ -56,7 +57,7 @@ namespace Meta.Locations {
                 _previousButton.gameObject.SetActive(true);
             }
 
-            OnLocationChanged?.Invoke(_levelsConfig.GetLocationName(_currentLocation));
+            ChangeLocationName();
         }
 
         private void ShowPreviousLocation() {
@@ -72,7 +73,7 @@ namespace Meta.Locations {
                 _previousButton.gameObject.SetActive(false);
             }
             
-            OnLocationChanged?.Invoke(_levelsConfig.GetLocationName(_currentLocation));
+            ChangeLocationName();
         }
 
         private void InitLocations(Progress progress, UnityAction<int, int> startLevelCallback) {
@@ -87,8 +88,8 @@ namespace Meta.Locations {
 
                 var currentLevel = progress.CurrentLevel;
 
-
-                _locations[i].Initialize(isLocationPassed, currentLevel,
+                var startAbsoluteLevel = _levelsConfig.GetAbsoluteStartLevelOnLocation(locationNumber);
+                _locations[i].Initialize(isLocationPassed, currentLevel, startAbsoluteLevel,
                     level => startLevelCallback?.Invoke(locationNumber, level));
                 _locations[i].SetActive(progress.CurrentLocation == locationNumber);
             }

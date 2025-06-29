@@ -13,18 +13,6 @@ MonoBehaviour:
   m_Name: SkillsConfig
   m_EditorClassIdentifier: 
   Skills:
-  - SkillId: AdditionalDamageSkill
-    SkillLevels:
-    - Level: 1
-      Value: 5
-      Trigger: 1
-      TriggerValue: 0
-      Cost: 10
-    - Level: 2
-      Value: 3
-      Trigger: 1
-      TriggerValue: 0
-      Cost: 12
   - SkillId: BlueDamageSkill
     SkillLevels:
     - Level: 1
@@ -32,21 +20,26 @@ MonoBehaviour:
       Trigger: 7
       TriggerValue: 0
       Cost: 10
+    - Level: 0
+      Value: 1
+      Trigger: 7
+      TriggerValue: 0
+      Cost: 5
     - Level: 2
       Value: 2
       Trigger: 7
       TriggerValue: 0
       Cost: 12
-    - Level: 2
+    - Level: 3
       Value: 3
       Trigger: 7
       TriggerValue: 0
       Cost: 12
-    - Level: 0
+    - Level: 4
       Value: 3
       Trigger: 7
       TriggerValue: 0
-      Cost: 2
+      Cost: 50
   - SkillId: RedDamageSkill
     SkillLevels:
     - Level: 1
@@ -59,13 +52,18 @@ MonoBehaviour:
       Trigger: 6
       TriggerValue: 0
       Cost: 12
-    - Level: 2
+    - Level: 3
       Value: 3
       Trigger: 6
       TriggerValue: 0
       Cost: 12
-    - Level: 0
+    - Level: 4
       Value: 3
+      Trigger: 6
+      TriggerValue: 0
+      Cost: 50
+    - Level: 0
+      Value: 1
       Trigger: 6
       TriggerValue: 0
       Cost: 5
@@ -86,8 +84,13 @@ MonoBehaviour:
       Trigger: 8
       TriggerValue: 0
       Cost: 12
+    - Level: 3
+      Value: 4
+      Trigger: 8
+      TriggerValue: 0
+      Cost: 50
     - Level: 0
-      Value: 0
+      Value: 1
       Trigger: 8
       TriggerValue: 0
       Cost: 5

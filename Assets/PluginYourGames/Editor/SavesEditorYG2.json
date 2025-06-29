@@ -1,11 +1,13 @@
 {
     "stringKeys": [
         "Wallet",
-        "Progress"
+        "Progress",
+        "OpenedSkills"
     ],
     "stringValues": [
-        "{\"Coins\":160}",
-        "{\"CurrentLocation\":2,\"CurrentLevel\":1}"
+        "{\"Coins\":26}",
+        "{\"CurrentLocation\":1,\"CurrentLevel\":2}",
+        "{\"Skills\":[{\"Id\":\"BlueDamageSkill\",\"Level\":4},{\"Id\":\"RedDamageSkill\",\"Level\":0},{\"Id\":\"GreenDamageSkill\",\"Level\":0}]}"
     ],
     "floatKeys": [],
     "floatValues": [],
@@ -19,5 +21,5 @@
         false,
         false
     ],
-    "idSave": 9
+    "idSave": 8
 }

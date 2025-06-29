@@ -38,7 +38,7 @@ namespace Meta {
 
             _shopWindow.Initialize(_saveSystem, _skillsConfig, _translatorManager);
             _tabsView.Initialize(OpenShop, OpenLocation);
-            _locationManager.Initialize(progress, StartLevel, ChangeLocationName);
+            _locationManager.Initialize(progress, StartLevel);
 
             InitCoins();
 
@@ -53,10 +53,6 @@ namespace Meta {
             var wallet = (Wallet) _saveSystem.GetData(SavableObjectType.Wallet);
             _tabsView.ChangeCoinsCount(wallet.Coins);
             wallet.OnChanged += _tabsView.ChangeCoinsCount;
-        }
-
-        private void ChangeLocationName(string locationName) {
-            _tabsView.ChangeLocationName(locationName);
         }
 
         private void StartLevel(int location, int level) {

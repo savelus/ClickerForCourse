@@ -6,7 +6,7 @@ namespace Meta.Locations {
     public class Location : MonoBehaviour {
         [SerializeField] private List<Pin> _pins;
 
-        public void Initialize(ProgressState locationState, int currentLevel, UnityAction<int> levelStartCallback) {
+        public void Initialize(ProgressState locationState, int currentLevel, int startAbsoluteLevel, UnityAction<int> levelStartCallback) {
             for (var i = 0; i < _pins.Count; i++) {
                 var level = i + 1;
                 
@@ -18,7 +18,7 @@ namespace Meta.Locations {
                 };
 
                 if (pinState == ProgressState.Closed) {
-                    _pins[i].Initialize(level, pinState, null);
+                    _pins[i].Initialize(level + startAbsoluteLevel, pinState, null);
                 }
                 else {
                     _pins[i].Initialize(level, pinState, () => levelStartCallback?.Invoke(level));

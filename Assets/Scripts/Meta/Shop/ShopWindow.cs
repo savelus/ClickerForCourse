@@ -59,6 +59,7 @@ namespace Meta.Shop {
         private void InitializeItemMap() {
             _itemsMap = new();
             foreach (var shopItem in _items) {
+                if (string.IsNullOrEmpty(shopItem.SkillId)) continue;
                 _itemsMap[shopItem.SkillId] = shopItem;
             }
         }
@@ -80,8 +81,9 @@ namespace Meta.Shop {
         }
 
         private void ShowBlock(int index) {
+            _currentBlock = (index + _blocks.Count) % _blocks.Count;
             for (var i = 0; i < _blocks.Count; i++) {
-                _currentBlock = (index + _blocks.Count) % _blocks.Count;
+                
                 _blocks[i].SetActive(i == _currentBlock);
             }
         }
