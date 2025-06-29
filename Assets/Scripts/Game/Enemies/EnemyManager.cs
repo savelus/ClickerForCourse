@@ -1,4 +1,5 @@
-﻿using Game.Configs.EnemyConfigs;
+﻿using System;
+using Game.Configs.EnemyConfigs;
 using Game.Configs.KNBConfig;
 using Game.Configs.LevelConfigs;
 using UnityEngine;
@@ -62,7 +63,8 @@ namespace Game.Enemies {
 
             var enemyStaticData = _enemiesConfig.GetEnemy(currentEnemy.Id);
             _currentEnemyDamageType = enemyStaticData.DamageType;
-            _currentEnemyMonoBehaviour.Initialize(enemyStaticData.Sprite, currentEnemy.Hp);
+            
+            _currentEnemyMonoBehaviour.Initialize(enemyStaticData.Sprite, currentEnemy.Hp, enemyStaticData.Name, GetCurrentColor(enemyStaticData.DamageType));
 
             if (currentEnemy.IsBoss) {
                 _levelInfoBlock.ShowBossInfo();
@@ -86,6 +88,15 @@ namespace Game.Enemies {
 
         public DamageType GetCurrentEnemyDamageType() {
             return _currentEnemyDamageType;
+        }
+
+        private Color GetCurrentColor(DamageType damageType) {
+            return damageType switch {
+                DamageType.Blue => Color.blue,
+                DamageType.Red => Color.red,
+                DamageType.Green => Color.green,
+                _ => Color.white
+            };
         }
     }
 }

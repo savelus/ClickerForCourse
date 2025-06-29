@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using Game.Configs.EnemyConfigs;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 namespace Game.Enemies {
     public class Enemy : MonoBehaviour {
         [SerializeField] private Image _image;
+        [SerializeField] private TextMeshProUGUI _enemyName;
+        [SerializeField] private Image _color;
 
         public event UnityAction<float> OnDamaged;
         public event UnityAction OnDead;
@@ -14,9 +17,12 @@ namespace Game.Enemies {
         private float _health;
         private Sequence _currentSequenceDamage;
 
-        public void Initialize(Sprite sprite, float health) {
+        public void Initialize(Sprite sprite, float health, string enemyName, Color color) {
             _health = health;
             _image.sprite = sprite;
+
+            _enemyName.text = enemyName;
+            _color.color = color;
             
             SetCurrentSequenceDamage();
         }
