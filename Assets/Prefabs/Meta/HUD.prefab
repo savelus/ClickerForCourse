@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "+50 \u043C\u043E\u043D\u0435\u0442"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fb1de7d9165ca479cb7aee86b357106d, type: 2}
+  m_sharedMaterial: {fileID: -6729731791002155842, guid: fb1de7d9165ca479cb7aee86b357106d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -267,8 +267,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fb1de7d9165ca479cb7aee86b357106d, type: 2}
+  m_sharedMaterial: {fileID: -6729731791002155842, guid: fb1de7d9165ca479cb7aee86b357106d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -484,7 +484,7 @@ RectTransform:
   m_GameObject: {fileID: 4612187658243084756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.77172196, y: 0.77172196, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6630964315672770973}
@@ -744,7 +744,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 2}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8951536056377946837
 CanvasRenderer:
@@ -851,8 +851,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fb1de7d9165ca479cb7aee86b357106d, type: 2}
+  m_sharedMaterial: {fileID: -6729731791002155842, guid: fb1de7d9165ca479cb7aee86b357106d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -975,7 +975,6 @@ MonoBehaviour:
   _shopWindowButton: {fileID: 4477552662907202267}
   _locationButton: {fileID: 5256304734753332463}
   _rewardedButton: {fileID: 8520798284410895296}
-  _locationNameText: {fileID: 0}
   _coinsCountText: {fileID: 782638655593018094}
 --- !u!223 &365783878575586478
 Canvas:
@@ -998,7 +997,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 200
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &5119295700876913791
 MonoBehaviour:
@@ -1324,6 +1323,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6412472550324741801, guid: 22663aff86e4c45b9a583e85745dc5f2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fb1de7d9165ca479cb7aee86b357106d, type: 2}
+    - target: {fileID: 6412472550324741801, guid: 22663aff86e4c45b9a583e85745dc5f2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6729731791002155842, guid: fb1de7d9165ca479cb7aee86b357106d, type: 2}
     - target: {fileID: 6944545575375993341, guid: 22663aff86e4c45b9a583e85745dc5f2, type: 3}
       propertyPath: m_Name
       value: MoneyCounter
