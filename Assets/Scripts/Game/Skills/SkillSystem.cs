@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.ClickButton;
 using Game.Configs.KNBConfig;
 using Game.Configs.SkillsConfig;
 using Game.Enemies;
@@ -12,13 +13,17 @@ namespace Game.Skills {
 
         private Dictionary<SkillTrigger, List<Skill>> _skillsByTrigger;
         
-        public SkillSystem(OpenedSkills openedSkills, SkillsConfig skillsConfig, EnemyManager enemyManager,
-            KNBConfig knbConfig) {
+        public SkillSystem(OpenedSkills openedSkills, 
+                           SkillsConfig skillsConfig,
+                           EnemyManager enemyManager,
+                           KNBConfig knbConfig,
+                           ClickButtonManager clickButtonManager) {
             _skillsConfig = skillsConfig;
             _skillsByTrigger = new();
             _scope = new() {
                 EnemyManager = enemyManager,
-                KnbConfig = knbConfig
+                KnbConfig = knbConfig,
+                ClickButtonManager = clickButtonManager,
             };
             
             foreach (var skill in openedSkills.Skills) {

@@ -94,3 +94,54 @@ MonoBehaviour:
       Trigger: 8
       TriggerValue: 0
       Cost: 5
+  - SkillId: BlueAutoClickSkill
+    SkillLevels:
+    - Level: 0
+      Value: 0
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 5
+    - Level: 1
+      Value: 10
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 10
+    - Level: 1
+      Value: 9
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 15
+  - SkillId: GreenAutoClickSkill
+    SkillLevels:
+    - Level: 0
+      Value: 0
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 5
+    - Level: 1
+      Value: 10
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 10
+    - Level: 1
+      Value: 9
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 15
+  - SkillId: RedAutoClickSkill
+    SkillLevels:
+    - Level: 0
+      Value: 0
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 5
+    - Level: 1
+      Value: 10
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 10
+    - Level: 1
+      Value: 9
+      Trigger: 0
+      TriggerValue: 0
+      Cost: 15

@@ -1,3 +1,5 @@
+using System;
+using Game.Configs.KNBConfig;
 using Game.Skills;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,6 +22,38 @@ namespace Game.ClickButton {
             _clickRedButton.SubscribeOnClick(() => skillSystem.InvokeTrigger(SkillTrigger.OnRed));
             _clickGreenButton.SubscribeOnClick(() => skillSystem.InvokeTrigger(SkillTrigger.OnGreen));
             _clickBlueButton.SubscribeOnClick(() => skillSystem.InvokeTrigger(SkillTrigger.OnBlue));
+        }
+
+        public void SetAutoClickToButton(DamageType color, float interval) {
+            switch (color) {
+                case DamageType.Red:
+                    _clickRedButton.InitAutoClickLoop(interval);
+                    break;
+                case DamageType.Green:
+                    _clickGreenButton.InitAutoClickLoop(interval);
+                    break;
+                case DamageType.Blue:
+                    _clickBlueButton.InitAutoClickLoop(interval);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(color), color, null);
+            }
+        }
+
+        public void StopAutoClickToButton(DamageType color) {
+            switch (color) {
+                case DamageType.Red:
+                    _clickRedButton.KillAutoClickLoop();
+                    break;
+                case DamageType.Green:
+                    _clickGreenButton.KillAutoClickLoop();
+                    break;
+                case DamageType.Blue:
+                    _clickBlueButton.KillAutoClickLoop();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(color), color, null);
+            }
         }
     }
 }

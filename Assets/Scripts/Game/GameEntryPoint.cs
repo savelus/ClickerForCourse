@@ -55,7 +55,7 @@ namespace Game {
             _endLevelWindow.Initialize();
             
             var openedSkills = (OpenedSkills)_saveSystem.GetData(SavableObjectType.OpenedSkills);
-            _skillSystem = new(openedSkills, _skillsConfig, _enemyManager, _knbConfig);
+            _skillSystem = new(openedSkills, _skillsConfig, _enemyManager, _knbConfig, _clickButtonManager);
             _endLevelSystem = new(_endLevelWindow, _saveSystem, _gameEnterParams, _levelsConfig);
             _clickButtonManager.Initialize(_skillSystem);
             
